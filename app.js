@@ -12,7 +12,7 @@ for(let i = 1; i <= 150; i++){
         const pokemonArr = results.map((json) => ({
             id: json.id,
             name: json.name,
-            image: json.sprites.front_shiny,
+            image: json.sprites.front_default,
             //Original Version to Access Main Type "grass"
             // pokemonArr['types'] = json.types[0].type.name;
             
@@ -26,12 +26,12 @@ for(let i = 1; i <= 150; i++){
         console.log(pokemonArr);
         
         const pokemonHTMLString = pokemonArr.map(eachPokemon => 
-            `<li>
-                <img src = "${eachPokemon.image}"/>
-                <h2> ${eachPokemon.id}. ${eachPokemon.name} </h2>
-                <p>Type: ${eachPokemon.type} </p>
+            `<li class = "card">
+                <img class = "card-image" src = "${eachPokemon.image}"/>
+                <h2 class = "card-title"> ${eachPokemon.id}. ${eachPokemon.name} </h2>
+                <p class = "card-subtitle"> Type: ${eachPokemon.type} </p>
             </li>
-            `)
+            `).join('');
             
             pokedex.innerHTML = pokemonHTMLString;
 
